@@ -14,7 +14,7 @@ source:
 
 build:
   merge_build_host: true  # [win]
-  number: 0
+  number: 1
   skip: true  # [win]
   rpaths:
     - lib/R/lib/
@@ -42,14 +42,13 @@ requirements:
     - r-curl >=1.0
     - r-jsonlite >=1.0
     - libv8
-    - icu >=64.2
+    - icu
   run:
     - r-base
     - {{ native }}gcc-libs         # [win]
     - r-rcpp >=0.12.12
     - r-curl >=1.0
     - r-jsonlite >=1.0
-    - libv8
 
 test:
   commands:

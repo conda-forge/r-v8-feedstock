@@ -5,7 +5,7 @@ Home: https://github.com/jeroen/v8 (devel) https://v8.dev (upstream)
 
 Package license: MIT
 
-Feedstock license: BSD 3-Clause
+Feedstock license: BSD-3-Clause
 
 Summary: An R interface to Google's open source JavaScript engine. This  package can now be compiled either with V8 version 6 or 7 (LTS) from  nodejs or with the legacy 3.14/3.15 branch of V8.
 
