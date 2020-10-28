@@ -7,45 +7,39 @@ package:
   version: {{ version|replace("-", "_") }}
 
 source:
-  url:
-    - {{ cran_mirror }}/src/contrib/V8_{{ version }}.tar.gz
-    - {{ cran_mirror }}/src/contrib/Archive/V8/V8_{{ version }}.tar.gz
-  sha256: c7f84e00350bd9b8897045c1d2f1500eeec867f6dc678a2cba307dedc24d52b4
+  url:  # [not win]
+    - {{ cran_mirror }}/src/contrib/V8_{{ version }}.tar.gz  # [not win]
+    - {{ cran_mirror }}/src/contrib/Archive/V8/V8_{{ version }}.tar.gz  # [not win]
+  sha256: c7f84e00350bd9b8897045c1d2f1500eeec867f6dc678a2cba307dedc24d52b4  # [not win]
+
+  url: https://cran.r-project.org/bin/windows/contrib/{{ r_base[0:3] }}/V8_{{ version }}.zip  # [win]
+  sha256: f5fe248762dc2ef55208102214e5589025cb8adfc56fd3f7db847a1372779004  # [win and r_base=="4.0"]
 
 build:
   merge_build_host: true  # [win]
   number: 0
-  skip: true  # [win]
+  skip: True  # [win and r_base=="3.6"]
   rpaths:
     - lib/R/lib/
     - lib/
 
 requirements:
   build:
-    - {{ compiler('c') }}              # [not win]
-    - {{ compiler('m2w64_c') }}        # [win]
-    - {{ compiler('cxx') }}            # [not win]
-    - {{ compiler('m2w64_cxx') }}      # [win]
-    - {{ posix }}filesystem        # [win]
-    - {{ posix }}sed               # [win]
-    - {{ posix }}grep              # [win]
-    - {{ posix }}autoconf
-    - {{ posix }}automake          # [not win]
-    - {{ posix }}automake-wrapper  # [win]
-    - {{ posix }}pkg-config
-    - {{ posix }}make
-    - {{ posix }}coreutils         # [win]
-    - {{ posix }}zip               # [win]
+    - {{ compiler('c') }}  # [not win]
+    - {{ compiler('cxx') }}  # [not win]
+    - {{ posix }}autoconf  # [not win]
+    - {{ posix }}automake  # [not win]
+    - {{ posix }}pkg-config  # [not win]
+    - {{ posix }}make  # [not win]
   host:
     - r-base
     - r-rcpp >=0.12.12
     - r-curl >=1.0
     - r-jsonlite >=1.0
-    - libv8
+    - libv8  # [not win]
     - icu
   run:
     - r-base
-    - {{ native }}gcc-libs         # [win]
     - r-rcpp >=0.12.12
     - r-curl >=1.0
     - r-jsonlite >=1.0
