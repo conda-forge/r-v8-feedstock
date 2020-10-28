@@ -25,6 +25,7 @@ build:
 
 requirements:
   build:
+    - posix  # [win]
     - {{ compiler('c') }}  # [not win]
     - {{ compiler('cxx') }}  # [not win]
     - {{ posix }}autoconf  # [not win]
