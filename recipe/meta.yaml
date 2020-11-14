@@ -1,4 +1,4 @@
-{% set version = "3.3.1" %}
+{% set version = "3.4.0" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,10 +10,10 @@ source:
   url:  # [not win]
     - {{ cran_mirror }}/src/contrib/V8_{{ version }}.tar.gz  # [not win]
     - {{ cran_mirror }}/src/contrib/Archive/V8/V8_{{ version }}.tar.gz  # [not win]
-  sha256: c7f84e00350bd9b8897045c1d2f1500eeec867f6dc678a2cba307dedc24d52b4  # [not win]
+  sha256: f5c8a2a03cc1be9f504f47711a0fcd1b962745139c9fb2a10fbd79c4ae103fbd  # [not win]
 
   url: https://cran.r-project.org/bin/windows/contrib/{{ r_base[0:3] }}/V8_{{ version }}.zip  # [win]
-  sha256: 214d30a822a1d3cc9093d948e6ad3dcfda633738b0e2393c51713b59e7345d04  # [win and r_base=="4.0"]
+  sha256: 3755bc47afb4cf7439e236992017f2c837f05ecc94ba2b25cb84cb954e4cf001  # [win and r_base=="4.0"]
 
 build:
   merge_build_host: true  # [win]

@@ -17,7 +17,7 @@ cxx_compiler_version:
 icu:
 - '67'
 libv8:
-- 8.4.371
+- 8.8.160
 macos_machine:
 - x86_64-apple-darwin13.4.0
 pin_run_as_build:

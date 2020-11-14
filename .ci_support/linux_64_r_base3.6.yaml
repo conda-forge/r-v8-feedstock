@@ -15,11 +15,11 @@ cxx_compiler:
 cxx_compiler_version:
 - '7'
 docker_image:
-- condaforge/linux-anvil-comp7
+- quay.io/condaforge/linux-anvil-comp7
 icu:
 - '67'
 libv8:
-- 8.4.371
+- 8.8.160
 pin_run_as_build:
   r-base:
     min_pin: x.x
