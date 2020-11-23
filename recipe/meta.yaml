@@ -13,7 +13,7 @@ source:
   sha256: f5c8a2a03cc1be9f504f47711a0fcd1b962745139c9fb2a10fbd79c4ae103fbd  # [not win]
 
   url: https://cran.r-project.org/bin/windows/contrib/{{ r_base[0:3] }}/V8_{{ version }}.zip  # [win]
-  sha256: 3755bc47afb4cf7439e236992017f2c837f05ecc94ba2b25cb84cb954e4cf001  # [win and r_base=="4.0"]
+  sha256: 9c61fea54aad91512b704b78c7d310f01d1a24fd9d4fa0530ae5b8bd8fe19f57  # [win and r_base=="4.0"]
 
 build:
   merge_build_host: true  # [win]
