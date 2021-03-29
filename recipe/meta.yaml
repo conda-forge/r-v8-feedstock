@@ -28,6 +28,7 @@ requirements:
     - cross-r-base {{ r_base }}  # [build_platform != target_platform]
     - r-rcpp                     # [build_platform != target_platform]
     - r-curl                     # [build_platform != target_platform]
+    - r-jsonlite                 # [build_platform != target_platform]
     - {{ compiler('c') }}  # [not win]
     - {{ compiler('cxx') }}  # [not win]
     - {{ posix }}autoconf  # [not win]
