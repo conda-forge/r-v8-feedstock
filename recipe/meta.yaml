@@ -13,7 +13,7 @@ source:
   sha256: f5c8a2a03cc1be9f504f47711a0fcd1b962745139c9fb2a10fbd79c4ae103fbd  # [not win]
 
   url: https://cran.r-project.org/bin/windows/contrib/{{ r_base[0:3] }}/V8_{{ version }}.zip  # [win]
-  sha256: 9f4ec8e23c94dd41673263f6ae11caba844dbfc7c35346c763269126e2b32b49  # [win and r_base=="4.0"]
+  sha256: 91b24b596ad7384586e7e0bc5dea971cd791153e4045ef457a8edb5f0644eca5  # [win and r_base=="4.0"]
 
 build:
   merge_build_host: true  # [win]
@@ -25,6 +25,10 @@ build:
 
 requirements:
   build:
+    - cross-r-base {{ r_base }}  # [build_platform != target_platform]
+    - r-rcpp                     # [build_platform != target_platform]
+    - r-curl                     # [build_platform != target_platform]
+    - r-jsonlite                 # [build_platform != target_platform]
     - {{ compiler('c') }}  # [not win]
     - {{ compiler('cxx') }}  # [not win]
     - {{ posix }}autoconf  # [not win]
