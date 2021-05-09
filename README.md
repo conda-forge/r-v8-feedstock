@@ -7,7 +7,7 @@ Package license: MIT
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-v8-feedstock/blob/master/LICENSE.txt)
 
-Summary: An R interface to Google's open source JavaScript engine. This  package can now be compiled either with V8 version 6 or 7 (LTS) from  nodejs or with the legacy 3.14/3.15 branch of V8.
+Summary: An R interface to V8, Google's open source JavaScript and WebAssembly engine. This package can be compiled either with V8 version 6 and up, a NodeJS shared library, or the legacy 3.14/3.15 branch of V8.
 
 Current build status
 ====================
@@ -62,6 +62,13 @@ Current build status
                 </a>
               </td>
             </tr><tr>
+              <td>win_64_r_base3.6</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=7223&branchName=master">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/r-v8-feedstock?branchName=master&jobName=win&configuration=win_64_r_base3.6" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
               <td>win_64_r_base4.0</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=7223&branchName=master">
@@ -90,6 +97,7 @@ Installing `r-v8` from the `conda-forge` channel can be achieved by adding `cond
 
 ```
 conda config --add channels conda-forge
+conda config --set channel_priority strict
 ```
 
 Once the `conda-forge` channel has been enabled, `r-v8` can be installed with:
