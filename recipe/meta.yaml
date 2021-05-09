@@ -1,4 +1,4 @@
-{% set version = "3.4.0" %}
+{% set version = '3.4.2' %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -7,18 +7,14 @@ package:
   version: {{ version|replace("-", "_") }}
 
 source:
-  url:  # [not win]
-    - {{ cran_mirror }}/src/contrib/V8_{{ version }}.tar.gz  # [not win]
-    - {{ cran_mirror }}/src/contrib/Archive/V8/V8_{{ version }}.tar.gz  # [not win]
-  sha256: f5c8a2a03cc1be9f504f47711a0fcd1b962745139c9fb2a10fbd79c4ae103fbd  # [not win]
-
-  url: https://cran.r-project.org/bin/windows/contrib/{{ r_base[0:3] }}/V8_{{ version }}.zip  # [win]
-  sha256: 91b24b596ad7384586e7e0bc5dea971cd791153e4045ef457a8edb5f0644eca5  # [win and r_base=="4.0"]
+  url:
+    - {{ cran_mirror }}/src/contrib/V8_{{ version }}.tar.gz
+    - {{ cran_mirror }}/src/contrib/Archive/V8/V8_{{ version }}.tar.gz
+  sha256: 210643473ca8bf423fae34ce72ceb37a3e44c3315ec4abae59a77f077542d2ed
 
 build:
-  merge_build_host: true  # [win]
-  number: 2
-  skip: True  # [win and r_base=="3.6"]
+  merge_build_host: True  # [win]
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
@@ -28,13 +24,21 @@ requirements:
     - cross-r-base {{ r_base }}  # [build_platform != target_platform]
     - r-rcpp                     # [build_platform != target_platform]
     - r-curl                     # [build_platform != target_platform]
-    - r-jsonlite                 # [build_platform != target_platform]
-    - {{ compiler('c') }}  # [not win]
-    - {{ compiler('cxx') }}  # [not win]
-    - {{ posix }}autoconf  # [not win]
-    - {{ posix }}automake  # [not win]
-    - {{ posix }}pkg-config  # [not win]
-    - {{ posix }}make  # [not win]
+    - r-jsonlite                 # [build_platform != target_platform]    
+    - {{ compiler('c') }}              # [not win]
+    - {{ compiler('m2w64_c') }}        # [win]
+    - {{ compiler('cxx') }}            # [not win]
+    - {{ compiler('m2w64_cxx') }}      # [win]
+    - {{ posix }}filesystem        # [win]
+    - {{ posix }}sed               # [win]
+    - {{ posix }}grep              # [win]
+    - {{ posix }}autoconf
+    - {{ posix }}automake          # [not win]
+    - {{ posix }}automake-wrapper  # [win]
+    - {{ posix }}pkg-config
+    - {{ posix }}make
+    - {{ posix }}coreutils         # [win]
+    - {{ posix }}zip               # [win]
   host:
     - r-base
     - r-rcpp >=0.12.12
@@ -57,7 +61,7 @@ test:
 about:
   home: https://github.com/jeroen/v8 (devel) https://v8.dev (upstream)
   license: MIT
-  summary: An R interface to Google's open source JavaScript engine. This  package can now be compiled either with V8 version 6 or 7 (LTS) from  nodejs or with the legacy 3.14/3.15 branch of V8.
+  summary: An R interface to V8: Google''s open source JavaScript and WebAssembly engine. This package can be compiled either with V8 version 6 and up, a NodeJS shared library, or the legacy 3.14/3.15 branch of V8.'
   license_family: MIT
   license_file: LICENSE
 
@@ -68,23 +72,24 @@ extra:
 
 # Package: V8
 # Type: Package
-# Title: Embedded JavaScript Engine for R
-# Version: 2.3
+# Title: Embedded JavaScript and WebAssembly Engine for R
+# Version: 3.4.2
 # Authors@R: person("Jeroen", "Ooms", role = c("aut", "cre"), email = "jeroen@berkeley.edu", comment = c(ORCID = "0000-0002-4035-0289"))
-# Description: An R interface to Google's open source JavaScript engine. This  package can now be compiled either with V8 version 6 or 7 (LTS) from  nodejs or with the legacy 3.14/3.15 branch of V8.
+# Description: An R interface to V8: Google's open source JavaScript and WebAssembly engine. This package can be compiled either with V8 version 6 and up, a NodeJS shared library, or the legacy 3.14/3.15 branch of V8.
 # License: MIT + file LICENSE
 # URL: https://github.com/jeroen/v8 (devel) https://v8.dev (upstream)
 # BugReports: https://github.com/jeroen/v8/issues
-# SystemRequirements: V8 version 6 or 7 is recommended, but 3.14 (legacy) is still supported as well. On Debian / Ubuntu you need either libv8-dev or libnode-dev, on Fedora use v8-devel.
+# SystemRequirements: V8 engine version 6+ is needed for modern JS and WASM support. On Debian / Ubuntu install either libv8-dev or libnode-dev, on Fedora use v8-devel. The readme has instructions for installing backports on Ubuntu Xenial and Bionic. It is still possible to build this package against the legacy libv8 version 3.14 branch, but these engines only support traditional JavaScript (ES5).
 # NeedsCompilation: yes
 # VignetteBuilder: knitr
 # Imports: Rcpp (>= 0.12.12), jsonlite (>= 1.0), curl (>= 1.0), utils
 # LinkingTo: Rcpp
 # Suggests: testthat, knitr, rmarkdown
-# RoxygenNote: 6.1.1
+# RoxygenNote: 7.1.1
 # Language: en-US
-# Packaged: 2019-07-02 09:56:44 UTC; jeroen
+# Encoding: UTF-8
+# Packaged: 2021-04-30 21:55:59 UTC; jeroen
 # Author: Jeroen Ooms [aut, cre] (<https://orcid.org/0000-0002-4035-0289>)
 # Maintainer: Jeroen Ooms <jeroen@berkeley.edu>
 # Repository: CRAN
-# Date/Publication: 2019-07-02 10:51:07 UTC
+# Date/Publication: 2021-05-01 04:40:02 UTC
