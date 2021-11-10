@@ -1,4 +1,4 @@
-{% set version = "3.5.0" %}
+{% set version = "3.6.0" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,7 +10,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/V8_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/V8/V8_{{ version }}.tar.gz
-  sha256: 5a0ea961a6d515b8a3ae6aa8bc09e957eb96481b40731c61c6400e617cb5ba73
+  sha256: a3969898bf4a7c13d3130fae0d385cd048d46372ff4a412917b914b159261377
 
 build:
   merge_build_host: true  # [win]
