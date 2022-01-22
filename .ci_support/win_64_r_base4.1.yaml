@@ -5,7 +5,7 @@ channel_targets:
 cran_mirror:
 - https://cran.r-project.org
 icu:
-- '68'
+- '69'
 m2w64_c_compiler:
 - m2w64-toolchain
 m2w64_cxx_compiler:
