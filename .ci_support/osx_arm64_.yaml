@@ -3,7 +3,7 @@ MACOSX_DEPLOYMENT_TARGET:
 c_compiler:
 - clang
 c_compiler_version:
-- '13'
+- '14'
 channel_sources:
 - conda-forge
 channel_targets:
@@ -13,9 +13,9 @@ cran_mirror:
 cxx_compiler:
 - clangxx
 cxx_compiler_version:
-- '13'
+- '14'
 icu:
-- '69'
+- '70'
 libv8:
 - 8.9.83
 macos_machine:
