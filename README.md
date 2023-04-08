@@ -1,11 +1,11 @@
-About r-v8
-==========
+About r-v8-feedstock
+====================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-v8-feedstock/blob/main/LICENSE.txt)
 
 Home: https://github.com/jeroen/v8 (devel) https://v8.dev (upstream)
 
 Package license: MIT
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-v8-feedstock/blob/main/LICENSE.txt)
 
 Summary: An R interface to V8, Google's open source JavaScript and WebAssembly engine. This package can be compiled either with V8 version 6 and up, a NodeJS shared library, or the legacy 3.14/3.15 branch of V8.
 
