@@ -13,6 +13,7 @@ source:
   sha256: 635bc20fb90206c357b0eba53d8af0789783241d300f0190fce9d6d0614c8f46
 
 build:
+  skip: true  # [win]
   merge_build_host: true  # [win]
   number: 0
   rpaths:
@@ -21,14 +22,14 @@ build:
 
 requirements:
   build:
-    - cross-r-base {{ r_base }}  # [build_platform != target_platform]
-    - r-rcpp                     # [build_platform != target_platform]
-    - r-curl                     # [build_platform != target_platform]
-    - r-jsonlite                 # [build_platform != target_platform]    
-    - {{ compiler('c') }}              # [not win]
-    - {{ compiler('m2w64_c') }}        # [win]
-    - {{ compiler('cxx') }}            # [not win]
-    - {{ compiler('m2w64_cxx') }}      # [win]
+    - cross-r-base {{ r_base }}    # [build_platform != target_platform]
+    - r-rcpp                       # [build_platform != target_platform]
+    - r-curl                       # [build_platform != target_platform]
+    - r-jsonlite                   # [build_platform != target_platform]    
+    - {{ compiler('c') }}          # [not win]
+    - {{ compiler('m2w64_c') }}    # [win]
+    - {{ compiler('cxx') }}        # [not win]
+    - {{ compiler('m2w64_cxx') }}  # [win]
     - {{ posix }}filesystem        # [win]
     - {{ posix }}sed               # [win]
     - {{ posix }}grep              # [win]
@@ -59,37 +60,16 @@ test:
     - "\"%R%\" -e \"library('V8')\""  # [win]
 
 about:
-  home: https://github.com/jeroen/v8 (devel) https://v8.dev (upstream)
+  home: https://v8.dev
+  dev_url: https://github.com/jeroen/v8
   license: MIT
   summary: An R interface to V8, Google's open source JavaScript and WebAssembly engine. This package can be compiled either with V8 version 6 and up, a NodeJS shared library, or the legacy 3.14/3.15 branch of V8.
   license_family: MIT
-  license_file: LICENSE
+  license_file: 
+    - {{ environ["PREFIX"] }}/lib/R/share/licenses/MIT
+    - LICENSE
 
 extra:
   recipe-maintainers:
     - conda-forge/r
     - xhochy
-
-# Package: V8
-# Type: Package
-# Title: Embedded JavaScript and WebAssembly Engine for R
-# Version: 3.4.2
-# Authors@R: person("Jeroen", "Ooms", role = c("aut", "cre"), email = "jeroen@berkeley.edu", comment = c(ORCID = "0000-0002-4035-0289"))
-# Description: An R interface to V8: Google's open source JavaScript and WebAssembly engine. This package can be compiled either with V8 version 6 and up, a NodeJS shared library, or the legacy 3.14/3.15 branch of V8.
-# License: MIT + file LICENSE
-# URL: https://github.com/jeroen/v8 (devel) https://v8.dev (upstream)
-# BugReports: https://github.com/jeroen/v8/issues
-# SystemRequirements: V8 engine version 6+ is needed for modern JS and WASM support. On Debian / Ubuntu install either libv8-dev or libnode-dev, on Fedora use v8-devel. The readme has instructions for installing backports on Ubuntu Xenial and Bionic. It is still possible to build this package against the legacy libv8 version 3.14 branch, but these engines only support traditional JavaScript (ES5).
-# NeedsCompilation: yes
-# VignetteBuilder: knitr
-# Imports: Rcpp (>= 0.12.12), jsonlite (>= 1.0), curl (>= 1.0), utils
-# LinkingTo: Rcpp
-# Suggests: testthat, knitr, rmarkdown
-# RoxygenNote: 7.1.1
-# Language: en-US
-# Encoding: UTF-8
-# Packaged: 2021-04-30 21:55:59 UTC; jeroen
-# Author: Jeroen Ooms [aut, cre] (<https://orcid.org/0000-0002-4035-0289>)
-# Maintainer: Jeroen Ooms <jeroen@berkeley.edu>
-# Repository: CRAN
-# Date/Publication: 2021-05-01 04:40:02 UTC
