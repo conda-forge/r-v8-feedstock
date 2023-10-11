@@ -3,11 +3,28 @@ About r-v8-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-v8-feedstock/blob/main/LICENSE.txt)
 
-Home: https://github.com/jeroen/v8 (devel) https://v8.dev (upstream)
+
+About r-v8
+----------
+
+Home: https://v8.dev
 
 Package license: MIT
 
 Summary: An R interface to V8, Google's open source JavaScript and WebAssembly engine. This package can be compiled either with V8 version 6 and up, a NodeJS shared library, or the legacy 3.14/3.15 branch of V8.
+
+Development: https://github.com/jeroen/v8
+
+About r-v8
+----------
+
+Home: https://v8.dev
+
+Package license: MIT
+
+Summary: An R interface to V8, Google's open source JavaScript and WebAssembly engine. This package can be compiled either with V8 version 6 and up, a NodeJS shared library, or the legacy 3.14/3.15 branch of V8.
+
+Development: https://github.com/jeroen/v8
 
 Current build status
 ====================
@@ -94,13 +111,6 @@ Current build status
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=7223&branchName=main">
                   <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/r-v8-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_r_base4.3" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>win_64</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=7223&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/r-v8-feedstock?branchName=main&jobName=win&configuration=win%20win_64_" alt="variant">
                 </a>
               </td>
             </tr>
