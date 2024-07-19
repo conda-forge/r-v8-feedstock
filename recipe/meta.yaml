@@ -1,6 +1,5 @@
 {% set version = "4.4.2" %}
 {% set posix = 'm2-' if win else '' %}
-{% set native = 'm2w64-' if win else '' %}
 
 package:
   name: r-v8
@@ -13,9 +12,9 @@ source:
   sha256: e7bc35f3420f5f537121d681a90c16a74b36dc17210c9425e7f03842493a9670
 
 build:
-  skip: true  # [win]
-  merge_build_host: true  # [win]
-  number: 0
+  # Checking windows to see if it passes. Uncomment the line if it fails.
+  # skip: true  # [win]
+  number: 1
   rpaths:
     - lib/R/lib/
     - lib/
@@ -27,7 +26,9 @@ requirements:
     - r-curl                       # [build_platform != target_platform]
     - r-jsonlite                   # [build_platform != target_platform]    
     - {{ compiler('c') }}          # [not win]
+    - {{ stdlib("c") }}            # [not win]
     - {{ compiler('m2w64_c') }}    # [win]
+    - {{ stdlib("m2w64_c") }}      # [win]
     - {{ compiler('cxx') }}        # [not win]
     - {{ compiler('m2w64_cxx') }}  # [win]
     - {{ posix }}filesystem        # [win]
@@ -49,7 +50,6 @@ requirements:
     - icu
   run:
     - r-base
-    - {{ native }}gcc-libs  # [win]
     - r-rcpp >=0.12.12
     - r-curl >=1.0
     - r-jsonlite >=1.0
