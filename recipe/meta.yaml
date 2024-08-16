@@ -1,4 +1,4 @@
-{% set version = "4.4.2" %}
+{% set version = "5.0.0" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
@@ -9,12 +9,12 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/V8_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/V8/V8_{{ version }}.tar.gz
-  sha256: e7bc35f3420f5f537121d681a90c16a74b36dc17210c9425e7f03842493a9670
+  sha256: 668fb759f973016e1e6aae21d711e83226d6895b43b2476c77feadf47896b21a
 
 build:
   # Checking windows to see if it passes. Uncomment the line if it fails.
   # skip: true  # [win]
-  number: 1
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
