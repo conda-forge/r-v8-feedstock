@@ -12,7 +12,7 @@ source:
   sha256: 19a38510f42b1c81f0b297e3eae25604eab197d0f3f4d6bfae5d10f1399f6c69
 
 build:
-  number: 0
+  number: 1
   rpaths:
     - lib/R/lib/
     - lib/
@@ -48,8 +48,10 @@ requirements:
     - r-rcpp >=0.12.12
     - r-curl >=1.0
     - r-jsonlite >=1.0
-    - libv8  # [not win]
-    - icu
+    # NB: falling back to vendored static build of libv8
+    # can likely revert after merge of https://github.com/conda-forge/libv8-feedstock/pull/85
+    #- libv8  # [not win]
+    #- icu
   run:
     - r-base
     - r-rcpp >=0.12.12
