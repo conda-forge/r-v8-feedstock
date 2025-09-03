@@ -1,0 +1,22 @@
+From 4601f9e5a5363ee57ffcb926f0a91722cb8af2db Mon Sep 17 00:00:00 2001
+From: Mervin Fansler <mervin.fansler@bric.ku.dk>
+Date: Wed, 3 Sep 2025 09:48:59 +0200
+Subject: [PATCH] link pthread
+
+---
+ src/Makevars.win | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/Makevars.win b/src/Makevars.win
+index 3ba154f..9eadb10 100644
+--- a/src/Makevars.win
++++ b/src/Makevars.win
+@@ -11,7 +11,7 @@ PKG_CPPFLAGS = -I$(RWINLIB)/include -DV8_ENABLE_SANDBOX -DV8_COMPRESS_POINTERS$(
+ PKG_LIBS = \
+ 	-L$(RWINLIB)/lib \
+ 	-lv8_monolith \
+-	-lws2_32 -lwinmm -ldbghelp -lshlwapi -lssp -lz
++	-lws2_32 -lwinmm -ldbghelp -lshlwapi -lssp -lz -lpthread
+ 
+ all: $(SHLIB) cleanup
+ 
