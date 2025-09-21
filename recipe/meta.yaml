@@ -22,10 +22,6 @@ build:
     - '*/R.dll'        # [win]
     - '*/Rblas.dll'    # [win]
     - '*/Rlapack.dll'  # [win]
-  script_env:          # [aarch64 or arm64 or ppc64le]
-    - arch=aarch64     # [aarch64]
-    - arch=arm64       # [arm64]
-    - arch=ppc64       # [ppc64le]
 
 requirements:
   build:
