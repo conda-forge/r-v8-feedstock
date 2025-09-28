@@ -10,8 +10,6 @@ source:
     - {{ cran_mirror }}/src/contrib/V8_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/V8/V8_{{ version }}.tar.gz
   sha256: 5b235ccc583284073a84365f2bb9fded2811b2ee3873f13394445f67de8f6ce4
-  patches:
-    - patches/0001-link-pthread.patch
 
 build:
   number: 0
