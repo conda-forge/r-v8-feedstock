@@ -1,4 +1,4 @@
-{% set version = "8.1.0" %}
+{% set version = "8.2.0" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
@@ -9,7 +9,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/V8_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/V8/V8_{{ version }}.tar.gz
-  sha256: 7386008cbab8996b4599ff3775ac399e2ed158beb8e0e99b2b55a576d1ce54f7
+  sha256: 72974b10eeb5cbfd9208c6b448195685e3e6b6e19bd1f6efb03293309c91a92b
 
 build:
   number: 0
